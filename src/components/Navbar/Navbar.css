@@ -1,0 +1,33 @@
+
+@font-face {
+    font-family: 'sf pro text';
+    src: url("../font2.OTF") format("opentype");
+}
+
+.nav_bar
+{
+    
+   
+    height: 4rem;
+    background-color: #E5E5E5;
+    border-bottom: 2px;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding-left: 2rem;
+    border-color: #D1D1D1;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 0px 0px 4px; */
+}
+
+
+.nav_text
+{
+    font-family: 'sf pro text';
+font-style: normal;
+font-weight: 800;
+font-size: 18px;
+line-height: 24px;
+color:  #7E8185;
+letter-spacing: 1.5px;
+word-spacing: 2px;
+}

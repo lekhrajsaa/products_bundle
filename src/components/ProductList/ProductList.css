@@ -1,0 +1,248 @@
+.main {
+  margin: auto;
+  width: 450px;
+  height: 100%;
+}
+
+.heading_text {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+  color: #202223;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  flex-grow: 0;
+}
+
+.first_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  height: 32px;
+  padding-left: 2px;
+  padding-right: 4px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+}
+.first_section h1 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  /* identical to box height, or 150% */
+
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.second_section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.discount {
+  background: #008060;
+  border: 2px solid #008060;
+  border-radius: 4px;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  width: 9rem;
+  /* identical to box height, or 143% */
+  padding: 4px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.product_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product_item_container {
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  column-gap: 10px;
+  margin-bottom: 15px;
+}
+.third_section {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* background-color: aqua; */
+  justify-content: space-between;
+}
+.list_variant_container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.list_variant_container button {
+  border: 0;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 21px;
+  /* identical to box height, or 175% */
+  background-color: transparent;
+  text-decoration-line: underline;
+
+  color: #006eff;
+}
+
+.subItem_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 24px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.subItem {
+  width: 310px;
+  height: 31px;
+  left: 375px;
+  top: 284px;
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+
+  /* identical to box height, or 150% */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  color: rgba(0, 0, 0, 0.8);
+}
+.subItem h2 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.add_product {
+  border: 2px solid #008060;
+  border-radius: 4px;
+  background-color: transparent;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  color: #008060;
+}
+.add_product_container {
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-right: 10px;
+  margin-top: 30px;
+}
+.img_util {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.subitem {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.head_title {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height, or 150% */
+
+  color: rgba(0, 0, 0, 0.9);
+}
+.head_img {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.addDiscount {
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 10px;
+  display: none;
+}
+.discount_hidden {
+  display: none;
+}
+.input_discount {
+  width: 4.2rem;
+  height: 1.9rem;
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.discount_select {
+  width: 6rem;
+  height: 2.15rem;
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+.productCount {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 1rem;
+  /* identical to box height, or 114% */
+  padding-right: 3px;
+
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.visible {
+  display: block;
+}
+
+.invisible {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    transform: scale(0.7);
+    margin-right: 40px;
+  }
+}
