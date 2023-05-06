@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddModal from "../AddModal";
 import "./ProductList.css";
 import { FiEdit2 } from "react-icons/fi";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import Dragger from "../../images/dragger.png";
 import cancel from "../../images/cancel.png";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
@@ -17,7 +17,7 @@ const ProductList = () => {
     return result;
   };
 
-  const [arr, setArr] = useState([{ add_id: uuid(), variants: [] }]);
+  const [arr, setArr] = useState([{ add_id: uuid(), variants: [] ,discount:0}]);
   const [variant, setVariant] = useState([]);
   const [clicked, setClicked] = useState(arr[0]);
   const [open, setOpen] = useState(false);
@@ -45,7 +45,11 @@ const ProductList = () => {
     <div className="main">
       <div className="heading_text">
         <div>Add Product</div>
-        <div>discount</div>
+       
+      </div>
+      <div className="subHeading">
+        <h2 className="discount_product">Products</h2>
+        <h2 className="discount_text">Discounts</h2>
       </div>
       <DragDropContext
         onDragEnd={(result) => {
@@ -106,6 +110,9 @@ const ProductList = () => {
                           <div
                             className="discount"
                             onClick={(e) => {
+
+                             
+
                               document
                                 .getElementsByClassName("discount")[0]
                                 .classList.replace(
@@ -126,10 +133,41 @@ const ProductList = () => {
                             <input
                               type="text"
                               className="input_discount"
+                              id={"input_discount"+ele.add_id}
+                              onChange={(e)=>{
+
+                               let a = e.currentTarget.value;
+                               console.log(a);
+                               let arrTemp =arr.map((el)=>{
+                                  if(el.add_id===ele.add_id)
+                                  {
+                                    return {...el,discount:a}
+                                  }
+                                  return el
+
+                               })
+                                setArr(arrTemp)
+
+                              }}
                             ></input>
-                            <select className="discount_select">
-                              <option>Flat Off</option>
-                              <option>Percent off</option>
+                            <select className="discount_select" onChange={(e)=>{
+                                let b =e.currentTarget.value
+                                console.log(b);
+                                let arrTemp =arr.map((el)=>{
+                                  if(el.add_id===ele.add_id)
+                                  {
+                                    return {...el,type:parseInt(b)}
+                                  }
+                                  return el
+
+                               })
+                                setArr(arrTemp)
+
+
+
+                            }}>
+                              <option value="1">Flat Off</option>
+                              <option value="2">% off</option>
                             </select>
                           </div>
                           <img
@@ -142,19 +180,40 @@ const ProductList = () => {
                       </div>
 
                       <div className="third_section">
-                        {ele.variants.length > 1 && (
-                          <div className="list_variant_container">
-                            {}
-                            <button
+                        {ele.variants.length > 0 && (
+                         <div className="list_variant_container ">
+                           
+                            <button className="invisible"
+                            id={"btn-hide-"+ele.add_id}
                               onClick={(e) => {
+                                e.currentTarget.classList.add("invisible")
+                                document.getElementById("btn-show-"+ele.add_id).classList.remove("invisible")
                                 document
                                   .getElementById("subItem-" + ele.add_id)
                                   .classList.toggle("invisible");
                               }}
                             >
-                              list variants <MdKeyboardArrowDown />
+                         <div className="inner_btn">    show variants <MdKeyboardArrowDown size={30} /></div>
                             </button>
-                          </div>
+                        
+                         
+                            <button
+                             id={"btn-show-"+ele.add_id}
+                              onClick={(e) => {
+
+
+
+                                e.currentTarget.classList.add("invisible")
+                                document.getElementById("btn-hide-"+ele.add_id).classList.remove("invisible")
+                                document
+                                  .getElementById("subItem-" + ele.add_id)
+                                  .classList.toggle("invisible");
+                              }}
+                            >
+                             <div className="inner_btn"> hide variants <MdKeyboardArrowUp size={30} /></div>
+                            </button>
+                         
+                         </div>
                         )}
                         <DragDropContext
                           onDragEnd={(result) => {
@@ -190,8 +249,9 @@ const ProductList = () => {
                                 {...provided.droppableProps}
                                 ref={provided.innerRef}
                                 id={"subItem-" + ele.add_id}
+                                style={{width:"100%",marginTop:20}}
                               >
-                                {ele.variants.length > 1 &&
+                                {ele.variants.length > 0 &&
                                   ele?.variants.map((elem, index) => {
                                     return (
                                       <Draggable
@@ -208,15 +268,27 @@ const ProductList = () => {
                                           >
                                             <img
                                               src={Dragger}
-                                              className="img_util"
+                                              className="img_util_sub"
                                               alt="dragger"
                                             />
                                             <div className="subItem">
+                                            <div  className="subItem_hero">
                                               <h2>{elem.title}</h2>
+                                            </div>
+                                            <div  className="subItem_product">
+                                             {
+                                          ele?.discount ||0
+                                             }
+                                            </div>
+                                            <div  className="subItem_type">
+                                             {
+                                              ele?.type ===1 ?`Flat Off`:`% Off`
+                                             }
+                                            </div>
                                             </div>
                                             <img
                                               src={cancel}
-                                              className="img_util"
+                                              className="img_util_cancel"
                                               alt="cancel"
                                               onClick={() => {
                                                 let temp = ele.variants.filter(
@@ -226,7 +298,7 @@ const ProductList = () => {
                                                 let temparr =
                                                   ele.variants.filter(
                                                     (item) =>
-                                                      item.id === elem.id
+                                                      item.id !== elem.id
                                                   ).length;
 
                                                 if (temparr === 0) {
@@ -234,6 +306,10 @@ const ProductList = () => {
                                                     (item) =>
                                                       item.add_id !== ele.add_id
                                                   );
+
+                                                      
+
+
                                                   setArr(temp2);
                                                 } else {
                                                   let temp3 = arr.map(
@@ -265,6 +341,7 @@ const ProductList = () => {
                           </Droppable>
                         </DragDropContext>
                       </div>
+                                  <hr  className="endLine"/>
                     </div>
                   )}
                 </Draggable>

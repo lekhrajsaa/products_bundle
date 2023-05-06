@@ -5,6 +5,7 @@ import axios from "axios";
 import { MdOutlineCancel } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 import { addReducer } from "../../reducer/AddReducer";
+import Checkbox from "../CheckBox/index";
 
 const AddModal = ({
   open,
@@ -135,11 +136,11 @@ const AddModal = ({
                 <div className="HeadItemContainer">
                   <div className="HeadItem_first">
                     {" "}
-                    <input
-                      type="checkbox"
+                    <Checkbox
+                      width={24} height={24}
                       className="checkbox_add"
                       onChange={(e) => handleAllCheck(e, ele)}
-                      style={{ backgroundColor: "green" }}
+                      
                       id={`check-${ele.id}`}
                     />
                     <img
@@ -155,8 +156,8 @@ const AddModal = ({
                     return (
                       <div key={elem.id} className="variant_container">
                         <div className="first_section_variant">
-                          <input
-                            type="checkbox"
+                          <Checkbox
+                            width={24} height={24}
                             className={"check-" + ele.id}
                             onChange={(e) => {
                               if (e.target.checked === true) {
