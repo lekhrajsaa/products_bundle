@@ -27,7 +27,7 @@ This project is built using the following technologies:
 
 ## Deployment
 
-1.login to Vercel by the github account. 
+1. login to Vercel by the github account. 
 2. Connect the project's  GitHub repository to Vercel.
 3. Choosing  the branch  to deploy.
 4. Configure any necessary environment variables if present in this case nothing is present.
