@@ -1,4 +1,4 @@
-#Products_bundle
+# Products_bundle
 
 This is a small project that allows you to add products and their variants, search for products and reorder them by drag and drop. It is built using React and deployed on Vercel.
 
