@@ -31,5 +31,10 @@ This project is built using the following technologies:
 2. Connect the project's  GitHub repository to Vercel.
 3. Choosing  the branch  to deploy.
 4. Configure any necessary environment variables if present in this case nothing is present.
-5. Deploy the application.
+5. automatic reconfiguration that it is a react project
+6. Autimatic steps by vercel
+              1. npm install (to install the dependencies)
+              2. npm run build (to build the application)
+7. Deploy the application.
+8. vercel generate the link to the website
 
