@@ -20,10 +20,10 @@ This project is built using the following technologies:
 
 ## Installation
 
-1. Clone the repository: `git clone <repository-url>`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm start`
-4. it start the development server in localhost://3000 by default
+
+1. Install dependencies: `npm install`
+2. Start the development server: `npm start`
+3. it start the development server in localhost://3000 by default
 
 ## Deployment
 
